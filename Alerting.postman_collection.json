@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "44905ad7-29cb-40c8-8e40-7bfe80eaa1d3",
+		"name": "Alerting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23163257"
+	},
+	"item": [
+		{
+			"name": "Create user group",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Set webhook",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.telegram.org/bot6959176578:AAHLBdF4Q4rvPrsojKlnPKmlUvvTIPo2cFY/setWebhook?url=https://alerting.loca.lt/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"telegram",
+						"org"
+					],
+					"path": [
+						"bot6959176578:AAHLBdF4Q4rvPrsojKlnPKmlUvvTIPo2cFY",
+						"setWebhook"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "https://alerting.loca.lt/"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get users by usergroupname",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8070/api/user/list?userGroupName=test",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"api",
+						"user",
+						"list"
+					],
+					"query": [
+						{
+							"key": "userGroupName",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send message to group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userGroupName\": \"test\",\r\n    \"message\": {\r\n        \"title\": \"Название\",\r\n        \"text\": \"Текстовый текст\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8070/api/bot"
+			},
+			"response": []
+		}
+	]
+}
